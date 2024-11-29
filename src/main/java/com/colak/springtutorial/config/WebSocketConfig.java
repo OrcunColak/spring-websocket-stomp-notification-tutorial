@@ -31,9 +31,10 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // Register a Stomp (Simple Text Oriented Messaging Protocol) endpoint that clients can connect to.
-        // For example "new StompJs.Client({brokerURL: 'ws://localhost:8080/gs-guide-websocket'});"
         registry.addEndpoint("/ws-notifications")
+
+                // use SockJs because the client is using new SockJS
                 .withSockJS()
-                ;
+        ;
     }
 }
